@@ -32,6 +32,15 @@
     "nativeLanguage": "en",
     "languages": [
       "en"
-    ]
+    ],
+    "aws": {
+      "applicationName": "testappalirezaamqaugust",
+      "environmentName": "testappalirezaamqaugust-env",
+      "bucketName": "testappalirezaamqaugustbucketppractice",
+      "instanceType": "t2.micro",
+      "awsRegion": "us-west-1",
+      "dbName": "testappalirezaamqdbaufustpractice",
+      "dbInstanceClass": "db.t2.micro"
+    }
   }
 }
