@@ -1,0 +1,38 @@
+{
+    "testappApp": {
+        "State" : {
+            "null": "",
+            "ALBORZ": "ALBORZ",
+            "ARDABIL": "ARDABIL",
+            "AZERBAIJAN_EAST": "AZERBAIJAN_EAST",
+            "AZERBAIJAN_WEST": "AZERBAIJAN_WEST",
+            "BUSHEHR": "BUSHEHR",
+            "CHAHAR_MAHAAL_AND_BAKHTIARI": "CHAHAR_MAHAAL_AND_BAKHTIARI",
+            "FARS": "FARS",
+            "GILAN": "GILAN",
+            "GOLESTAN": "GOLESTAN",
+            "HAMADAN": "HAMADAN",
+            "HORMOZGAN": "HORMOZGAN",
+            "ILAM": "ILAM",
+            "ISFAHAN": "ISFAHAN",
+            "KERMAN": "KERMAN",
+            "KERMANSHAH": "KERMANSHAH",
+            "KHORASAN_NORTH": "KHORASAN_NORTH",
+            "KHORASAN_RAZAVI": "KHORASAN_RAZAVI",
+            "KHORASAN_SOUTH": "KHORASAN_SOUTH",
+            "KHUZESTAN": "KHUZESTAN",
+            "KOHGILUYEH_AND_BOYER_AHMAD": "KOHGILUYEH_AND_BOYER_AHMAD",
+            "KURDISTAN": "KURDISTAN",
+            "LORESTAN": "LORESTAN",
+            "MARKAZI": "MARKAZI",
+            "MAZANDARAN": "MAZANDARAN",
+            "QAZVIN": "QAZVIN",
+            "QOM": "QOM",
+            "SEMNAN": "SEMNAN",
+            "SISTAN_AND_BALUCHESTAN": "SISTAN_AND_BALUCHESTAN",
+            "TEHRAN": "TEHRAN",
+            "YAZD": "YAZD",
+            "ZANJAN": "ZANJAN"
+        }
+    }
+}

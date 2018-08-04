@@ -1,0 +1,39 @@
+
+{
+    "testappApp": {
+        "business" : {
+            "home": {
+                "title": "Businesses",
+                "createLabel": "Create a new Business",
+                "createOrEditLabel": "Create or edit a Business"
+            },
+            "created": "A new Business is created with identifier {{ param }}",
+            "updated": "A Business is updated with identifier {{ param }}",
+            "deleted": "A Business is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Business {{ id }}?"
+            },
+            "detail": {
+                "title": "Business"
+            },
+            "title": "Title",
+            "description": "Description",
+            "state": "State",
+            "address": "Address",
+            "phone": "Phone",
+            "rate": "Rate",
+            "since": "Since",
+            "link": "Link",
+            "reservation": "Reservation",
+            "delivery": "Delivery",
+            "wifi": "Wifi",
+            "image": "Image",
+            "video": "Video",
+            "paid": "Paid",
+            "imagepath": "Imagepath",
+            "videopath": "Videopath",
+            "userProfile": "User Profile",
+            "review": "Review"
+        }
+    }
+}

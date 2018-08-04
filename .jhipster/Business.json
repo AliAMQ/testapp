@@ -1,0 +1,104 @@
+{
+    "name": "Business",
+    "fields": [
+        {
+            "fieldName": "title",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "state",
+            "fieldType": "State",
+            "fieldValues": "ALBORZ,ARDABIL,AZERBAIJAN_EAST,AZERBAIJAN_WEST,BUSHEHR,CHAHAR_MAHAAL_AND_BAKHTIARI,FARS,GILAN,GOLESTAN,HAMADAN,HORMOZGAN,ILAM,ISFAHAN,KERMAN,KERMANSHAH,KHORASAN_NORTH,KHORASAN_RAZAVI,KHORASAN_SOUTH,KHUZESTAN,KOHGILUYEH_AND_BOYER_AHMAD,KURDISTAN,LORESTAN,MARKAZI,MAZANDARAN,QAZVIN,QOM,SEMNAN,SISTAN_AND_BALUCHESTAN,TEHRAN,YAZD,ZANJAN"
+        },
+        {
+            "fieldName": "address",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "phone",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "rate",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "min",
+                "max"
+            ],
+            "fieldValidateRulesMin": 1,
+            "fieldValidateRulesMax": 5
+        },
+        {
+            "fieldName": "since",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "link",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "reservation",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "delivery",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "wifi",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "image",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "image"
+        },
+        {
+            "fieldName": "video",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "any"
+        },
+        {
+            "fieldName": "paid",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "imagepath",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "videopath",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "userProfile",
+            "otherEntityName": "userProfile",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "review",
+            "otherEntityName": "review",
+            "otherEntityRelationshipName": "business"
+        }
+    ],
+    "changelogDate": "20180803234926",
+    "entityTableName": "business",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

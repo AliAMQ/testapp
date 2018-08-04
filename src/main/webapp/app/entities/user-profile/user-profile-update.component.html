@@ -1,0 +1,119 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-user-profile-heading" jhiTranslate="testappApp.userProfile.home.createOrEditLabel">Create or edit a User Profile</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!userProfile.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="userProfile.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testappApp.userProfile.state" for="field_state">State</label>
+                    <select class="form-control" name="state" [(ngModel)]="userProfile.state" id="field_state" >
+                        <option value="ALBORZ">{{'testappApp.State.ALBORZ' | translate}}</option>
+                        <option value="ARDABIL">{{'testappApp.State.ARDABIL' | translate}}</option>
+                        <option value="AZERBAIJAN_EAST">{{'testappApp.State.AZERBAIJAN_EAST' | translate}}</option>
+                        <option value="AZERBAIJAN_WEST">{{'testappApp.State.AZERBAIJAN_WEST' | translate}}</option>
+                        <option value="BUSHEHR">{{'testappApp.State.BUSHEHR' | translate}}</option>
+                        <option value="CHAHAR_MAHAAL_AND_BAKHTIARI">{{'testappApp.State.CHAHAR_MAHAAL_AND_BAKHTIARI' | translate}}</option>
+                        <option value="FARS">{{'testappApp.State.FARS' | translate}}</option>
+                        <option value="GILAN">{{'testappApp.State.GILAN' | translate}}</option>
+                        <option value="GOLESTAN">{{'testappApp.State.GOLESTAN' | translate}}</option>
+                        <option value="HAMADAN">{{'testappApp.State.HAMADAN' | translate}}</option>
+                        <option value="HORMOZGAN">{{'testappApp.State.HORMOZGAN' | translate}}</option>
+                        <option value="ILAM">{{'testappApp.State.ILAM' | translate}}</option>
+                        <option value="ISFAHAN">{{'testappApp.State.ISFAHAN' | translate}}</option>
+                        <option value="KERMAN">{{'testappApp.State.KERMAN' | translate}}</option>
+                        <option value="KERMANSHAH">{{'testappApp.State.KERMANSHAH' | translate}}</option>
+                        <option value="KHORASAN_NORTH">{{'testappApp.State.KHORASAN_NORTH' | translate}}</option>
+                        <option value="KHORASAN_RAZAVI">{{'testappApp.State.KHORASAN_RAZAVI' | translate}}</option>
+                        <option value="KHORASAN_SOUTH">{{'testappApp.State.KHORASAN_SOUTH' | translate}}</option>
+                        <option value="KHUZESTAN">{{'testappApp.State.KHUZESTAN' | translate}}</option>
+                        <option value="KOHGILUYEH_AND_BOYER_AHMAD">{{'testappApp.State.KOHGILUYEH_AND_BOYER_AHMAD' | translate}}</option>
+                        <option value="KURDISTAN">{{'testappApp.State.KURDISTAN' | translate}}</option>
+                        <option value="LORESTAN">{{'testappApp.State.LORESTAN' | translate}}</option>
+                        <option value="MARKAZI">{{'testappApp.State.MARKAZI' | translate}}</option>
+                        <option value="MAZANDARAN">{{'testappApp.State.MAZANDARAN' | translate}}</option>
+                        <option value="QAZVIN">{{'testappApp.State.QAZVIN' | translate}}</option>
+                        <option value="QOM">{{'testappApp.State.QOM' | translate}}</option>
+                        <option value="SEMNAN">{{'testappApp.State.SEMNAN' | translate}}</option>
+                        <option value="SISTAN_AND_BALUCHESTAN">{{'testappApp.State.SISTAN_AND_BALUCHESTAN' | translate}}</option>
+                        <option value="TEHRAN">{{'testappApp.State.TEHRAN' | translate}}</option>
+                        <option value="YAZD">{{'testappApp.State.YAZD' | translate}}</option>
+                        <option value="ZANJAN">{{'testappApp.State.ZANJAN' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testappApp.userProfile.city" for="field_city">City</label>
+                    <input type="text" class="form-control" name="city" id="field_city"
+                        [(ngModel)]="userProfile.city" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testappApp.userProfile.address" for="field_address">Address</label>
+                    <input type="text" class="form-control" name="address" id="field_address"
+                        [(ngModel)]="userProfile.address" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testappApp.userProfile.phone" for="field_phone">Phone</label>
+                    <input type="text" class="form-control" name="phone" id="field_phone"
+                        [(ngModel)]="userProfile.phone" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testappApp.userProfile.image" for="field_image">Image</label>
+                    <div>
+                        <img [src]="'data:' + userProfile.imageContentType + ';base64,' + userProfile.image" style="max-height: 100px;" *ngIf="userProfile.image" alt="userProfile image"/>
+                        <div *ngIf="userProfile.image" class="form-text text-danger clearfix">
+                            <span class="pull-left">{{userProfile.imageContentType}}, {{byteSize(userProfile.image)}}</span>
+                            <button type="button" (click)="clearInputImage('image', 'imageContentType', 'fileImage')" class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon [icon]="'times'"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_image" (change)="setFileData($event, userProfile, 'image', true)" accept="image/*" jhiTranslate="entity.action.addimage"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="image" id="field_image"
+                        [(ngModel)]="userProfile.image" />
+                    <input type="hidden" class="form-control" name="imageContentType" id="field_imageContentType"
+                        [(ngModel)]="userProfile.imageContentType" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testappApp.userProfile.since" for="field_since">Since</label>
+                    <div class="input-group">
+                        <input id="field_since" type="text" class="form-control" name="since" ngbDatepicker  #sinceDp="ngbDatepicker" [(ngModel)]="userProfile.since"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="sinceDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testappApp.userProfile.owner" for="field_owner">Owner</label>
+                    <input type="checkbox" class="form-control" name="owner" id="field_owner"
+                        [(ngModel)]="userProfile.owner" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testappApp.userProfile.imagepath" for="field_imagepath">Imagepath</label>
+                    <input type="text" class="form-control" name="imagepath" id="field_imagepath"
+                        [(ngModel)]="userProfile.imagepath" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testappApp.userProfile.user" for="field_user">User</label>
+                    <select class="form-control" id="field_user" name="user" [(ngModel)]="userProfile.userId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="userOption.id" *ngFor="let userOption of users; trackBy: trackUserById">{{userOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

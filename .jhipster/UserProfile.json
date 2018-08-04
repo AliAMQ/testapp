@@ -1,0 +1,70 @@
+{
+    "name": "UserProfile",
+    "fields": [
+        {
+            "fieldName": "state",
+            "fieldType": "State",
+            "fieldValues": "ALBORZ,ARDABIL,AZERBAIJAN_EAST,AZERBAIJAN_WEST,BUSHEHR,CHAHAR_MAHAAL_AND_BAKHTIARI,FARS,GILAN,GOLESTAN,HAMADAN,HORMOZGAN,ILAM,ISFAHAN,KERMAN,KERMANSHAH,KHORASAN_NORTH,KHORASAN_RAZAVI,KHORASAN_SOUTH,KHUZESTAN,KOHGILUYEH_AND_BOYER_AHMAD,KURDISTAN,LORESTAN,MARKAZI,MAZANDARAN,QAZVIN,QOM,SEMNAN,SISTAN_AND_BALUCHESTAN,TEHRAN,YAZD,ZANJAN"
+        },
+        {
+            "fieldName": "city",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "address",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "phone",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "image",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "image"
+        },
+        {
+            "fieldName": "since",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "owner",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "imagepath",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "user",
+            "otherEntityName": "user",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "userProfile"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "business",
+            "otherEntityName": "business",
+            "otherEntityRelationshipName": "userProfile"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "review",
+            "otherEntityName": "review",
+            "otherEntityRelationshipName": "userProfile"
+        }
+    ],
+    "changelogDate": "20180803234925",
+    "entityTableName": "user_profile",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

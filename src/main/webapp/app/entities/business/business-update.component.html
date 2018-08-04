@@ -1,0 +1,192 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-business-heading" jhiTranslate="testappApp.business.home.createOrEditLabel">Create or edit a Business</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!business.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="business.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testappApp.business.title" for="field_title">Title</label>
+                    <input type="text" class="form-control" name="title" id="field_title"
+                        [(ngModel)]="business.title" required/>
+                    <div [hidden]="!(editForm.controls.title?.dirty && editForm.controls.title?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.title?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testappApp.business.description" for="field_description">Description</label>
+                    <input type="text" class="form-control" name="description" id="field_description"
+                        [(ngModel)]="business.description" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testappApp.business.state" for="field_state">State</label>
+                    <select class="form-control" name="state" [(ngModel)]="business.state" id="field_state" >
+                        <option value="ALBORZ">{{'testappApp.State.ALBORZ' | translate}}</option>
+                        <option value="ARDABIL">{{'testappApp.State.ARDABIL' | translate}}</option>
+                        <option value="AZERBAIJAN_EAST">{{'testappApp.State.AZERBAIJAN_EAST' | translate}}</option>
+                        <option value="AZERBAIJAN_WEST">{{'testappApp.State.AZERBAIJAN_WEST' | translate}}</option>
+                        <option value="BUSHEHR">{{'testappApp.State.BUSHEHR' | translate}}</option>
+                        <option value="CHAHAR_MAHAAL_AND_BAKHTIARI">{{'testappApp.State.CHAHAR_MAHAAL_AND_BAKHTIARI' | translate}}</option>
+                        <option value="FARS">{{'testappApp.State.FARS' | translate}}</option>
+                        <option value="GILAN">{{'testappApp.State.GILAN' | translate}}</option>
+                        <option value="GOLESTAN">{{'testappApp.State.GOLESTAN' | translate}}</option>
+                        <option value="HAMADAN">{{'testappApp.State.HAMADAN' | translate}}</option>
+                        <option value="HORMOZGAN">{{'testappApp.State.HORMOZGAN' | translate}}</option>
+                        <option value="ILAM">{{'testappApp.State.ILAM' | translate}}</option>
+                        <option value="ISFAHAN">{{'testappApp.State.ISFAHAN' | translate}}</option>
+                        <option value="KERMAN">{{'testappApp.State.KERMAN' | translate}}</option>
+                        <option value="KERMANSHAH">{{'testappApp.State.KERMANSHAH' | translate}}</option>
+                        <option value="KHORASAN_NORTH">{{'testappApp.State.KHORASAN_NORTH' | translate}}</option>
+                        <option value="KHORASAN_RAZAVI">{{'testappApp.State.KHORASAN_RAZAVI' | translate}}</option>
+                        <option value="KHORASAN_SOUTH">{{'testappApp.State.KHORASAN_SOUTH' | translate}}</option>
+                        <option value="KHUZESTAN">{{'testappApp.State.KHUZESTAN' | translate}}</option>
+                        <option value="KOHGILUYEH_AND_BOYER_AHMAD">{{'testappApp.State.KOHGILUYEH_AND_BOYER_AHMAD' | translate}}</option>
+                        <option value="KURDISTAN">{{'testappApp.State.KURDISTAN' | translate}}</option>
+                        <option value="LORESTAN">{{'testappApp.State.LORESTAN' | translate}}</option>
+                        <option value="MARKAZI">{{'testappApp.State.MARKAZI' | translate}}</option>
+                        <option value="MAZANDARAN">{{'testappApp.State.MAZANDARAN' | translate}}</option>
+                        <option value="QAZVIN">{{'testappApp.State.QAZVIN' | translate}}</option>
+                        <option value="QOM">{{'testappApp.State.QOM' | translate}}</option>
+                        <option value="SEMNAN">{{'testappApp.State.SEMNAN' | translate}}</option>
+                        <option value="SISTAN_AND_BALUCHESTAN">{{'testappApp.State.SISTAN_AND_BALUCHESTAN' | translate}}</option>
+                        <option value="TEHRAN">{{'testappApp.State.TEHRAN' | translate}}</option>
+                        <option value="YAZD">{{'testappApp.State.YAZD' | translate}}</option>
+                        <option value="ZANJAN">{{'testappApp.State.ZANJAN' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testappApp.business.address" for="field_address">Address</label>
+                    <input type="text" class="form-control" name="address" id="field_address"
+                        [(ngModel)]="business.address" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testappApp.business.phone" for="field_phone">Phone</label>
+                    <input type="text" class="form-control" name="phone" id="field_phone"
+                        [(ngModel)]="business.phone" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testappApp.business.rate" for="field_rate">Rate</label>
+                    <input type="number" class="form-control" name="rate" id="field_rate"
+                        [(ngModel)]="business.rate" min="1" jhiMin="1" max="5" jhiMax="5"/>
+                    <div [hidden]="!(editForm.controls.rate?.dirty && editForm.controls.rate?.invalid)">
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.rate?.errors?.min" jhiTranslate="entity.validation.min" translateValues="{ min: 1 }">
+                            This field should be at least 1.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.rate?.errors?.max" jhiTranslate="entity.validation.max" translateValues="{ max: 5 }">
+                            This field cannot be more than 5.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.rate?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testappApp.business.since" for="field_since">Since</label>
+                    <div class="input-group">
+                        <input id="field_since" type="text" class="form-control" name="since" ngbDatepicker  #sinceDp="ngbDatepicker" [(ngModel)]="business.since"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="sinceDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testappApp.business.link" for="field_link">Link</label>
+                    <input type="text" class="form-control" name="link" id="field_link"
+                        [(ngModel)]="business.link" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testappApp.business.reservation" for="field_reservation">Reservation</label>
+                    <input type="checkbox" class="form-control" name="reservation" id="field_reservation"
+                        [(ngModel)]="business.reservation" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testappApp.business.delivery" for="field_delivery">Delivery</label>
+                    <input type="checkbox" class="form-control" name="delivery" id="field_delivery"
+                        [(ngModel)]="business.delivery" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testappApp.business.wifi" for="field_wifi">Wifi</label>
+                    <input type="checkbox" class="form-control" name="wifi" id="field_wifi"
+                        [(ngModel)]="business.wifi" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testappApp.business.image" for="field_image">Image</label>
+                    <div>
+                        <img [src]="'data:' + business.imageContentType + ';base64,' + business.image" style="max-height: 100px;" *ngIf="business.image" alt="business image"/>
+                        <div *ngIf="business.image" class="form-text text-danger clearfix">
+                            <span class="pull-left">{{business.imageContentType}}, {{byteSize(business.image)}}</span>
+                            <button type="button" (click)="clearInputImage('image', 'imageContentType', 'fileImage')" class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon [icon]="'times'"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_image" (change)="setFileData($event, business, 'image', true)" accept="image/*" jhiTranslate="entity.action.addimage"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="image" id="field_image"
+                        [(ngModel)]="business.image" />
+                    <input type="hidden" class="form-control" name="imageContentType" id="field_imageContentType"
+                        [(ngModel)]="business.imageContentType" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testappApp.business.video" for="field_video">Video</label>
+                    <div>
+                        <div *ngIf="business.video" class="form-text text-danger clearfix">
+                            <a class="pull-left" (click)="openFile(business.videoContentType, business.video)" jhiTranslate="entity.action.open">open</a><br>
+                            <span class="pull-left">{{business.videoContentType}}, {{byteSize(business.video)}}</span>
+                            <button type="button" (click)="business.video=null;business.videoContentType=null;"
+                                    class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon [icon]="'times'"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_video" (change)="setFileData($event, business, 'video', false)" jhiTranslate="entity.action.addblob"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="video" id="field_video"
+                        [(ngModel)]="business.video" />
+                    <input type="hidden" class="form-control" name="videoContentType" id="field_videoContentType"
+                        [(ngModel)]="business.videoContentType" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testappApp.business.paid" for="field_paid">Paid</label>
+                    <input type="checkbox" class="form-control" name="paid" id="field_paid"
+                        [(ngModel)]="business.paid" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testappApp.business.imagepath" for="field_imagepath">Imagepath</label>
+                    <input type="text" class="form-control" name="imagepath" id="field_imagepath"
+                        [(ngModel)]="business.imagepath" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testappApp.business.videopath" for="field_videopath">Videopath</label>
+                    <input type="text" class="form-control" name="videopath" id="field_videopath"
+                        [(ngModel)]="business.videopath" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testappApp.business.userProfile" for="field_userProfile">User Profile</label>
+                    <select class="form-control" id="field_userProfile" name="userProfile" [(ngModel)]="business.userProfileId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="userProfileOption.id" *ngFor="let userProfileOption of userprofiles; trackBy: trackUserProfileById">{{userProfileOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

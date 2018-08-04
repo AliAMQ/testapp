@@ -1,0 +1,79 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="review">
+            <h2><span jhiTranslate="testappApp.review.detail.title">Review</span> {{review.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="testappApp.review.title">Title</span></dt>
+                <dd>
+                    <span>{{review.title}}</span>
+                </dd>
+                <dt><span jhiTranslate="testappApp.review.description">Description</span></dt>
+                <dd>
+                    <span>{{review.description}}</span>
+                </dd>
+                <dt><span jhiTranslate="testappApp.review.like">Like</span></dt>
+                <dd>
+                    <span>{{review.like}}</span>
+                </dd>
+                <dt><span jhiTranslate="testappApp.review.dislike">Dislike</span></dt>
+                <dd>
+                    <span>{{review.dislike}}</span>
+                </dd>
+                <dt><span jhiTranslate="testappApp.review.date">Date</span></dt>
+                <dd>
+                    <span>{{review.date}}</span>
+                </dd>
+                <dt><span jhiTranslate="testappApp.review.image">Image</span></dt>
+                <dd>
+                    <div *ngIf="review.image">
+                        <a (click)="openFile(review.imageContentType, review.image)">
+                            <img [src]="'data:' + review.imageContentType + ';base64,' + review.image" style="max-width: 100%;" alt="review image"/>
+                        </a>
+                        {{review.imageContentType}}, {{byteSize(review.image)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="testappApp.review.video">Video</span></dt>
+                <dd>
+                    <div *ngIf="review.video">
+                        <a (click)="openFile(review.videoContentType, review.video)" jhiTranslate="entity.action.open">open</a>
+                        {{review.videoContentType}}, {{byteSize(review.video)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="testappApp.review.imagepath">Imagepath</span></dt>
+                <dd>
+                    <span>{{review.imagepath}}</span>
+                </dd>
+                <dt><span jhiTranslate="testappApp.review.videopath">Videopath</span></dt>
+                <dd>
+                    <span>{{review.videopath}}</span>
+                </dd>
+                <dt><span jhiTranslate="testappApp.review.userProfile">User Profile</span></dt>
+                <dd>
+                    <div *ngIf="review.userProfileId">
+                        <a [routerLink]="['/user-profile', review.userProfileId, 'view']">{{review.userProfileId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="testappApp.review.business">Business</span></dt>
+                <dd>
+                    <div *ngIf="review.businessId">
+                        <a [routerLink]="['/business', review.businessId, 'view']">{{review.businessId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/review', review.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

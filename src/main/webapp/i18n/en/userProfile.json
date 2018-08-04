@@ -1,0 +1,32 @@
+
+{
+    "testappApp": {
+        "userProfile" : {
+            "home": {
+                "title": "User Profiles",
+                "createLabel": "Create a new User Profile",
+                "createOrEditLabel": "Create or edit a User Profile"
+            },
+            "created": "A new User Profile is created with identifier {{ param }}",
+            "updated": "A User Profile is updated with identifier {{ param }}",
+            "deleted": "A User Profile is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete User Profile {{ id }}?"
+            },
+            "detail": {
+                "title": "User Profile"
+            },
+            "state": "State",
+            "city": "City",
+            "address": "Address",
+            "phone": "Phone",
+            "image": "Image",
+            "since": "Since",
+            "owner": "Owner",
+            "imagepath": "Imagepath",
+            "user": "User",
+            "business": "Business",
+            "review": "Review"
+        }
+    }
+}

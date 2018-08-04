@@ -1,0 +1,101 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="business">
+            <h2><span jhiTranslate="testappApp.business.detail.title">Business</span> {{business.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="testappApp.business.title">Title</span></dt>
+                <dd>
+                    <span>{{business.title}}</span>
+                </dd>
+                <dt><span jhiTranslate="testappApp.business.description">Description</span></dt>
+                <dd>
+                    <span>{{business.description}}</span>
+                </dd>
+                <dt><span jhiTranslate="testappApp.business.state">State</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'testappApp.State.' + business.state}}">{{business.state}}</span>
+                </dd>
+                <dt><span jhiTranslate="testappApp.business.address">Address</span></dt>
+                <dd>
+                    <span>{{business.address}}</span>
+                </dd>
+                <dt><span jhiTranslate="testappApp.business.phone">Phone</span></dt>
+                <dd>
+                    <span>{{business.phone}}</span>
+                </dd>
+                <dt><span jhiTranslate="testappApp.business.rate">Rate</span></dt>
+                <dd>
+                    <span>{{business.rate}}</span>
+                </dd>
+                <dt><span jhiTranslate="testappApp.business.since">Since</span></dt>
+                <dd>
+                    <span>{{business.since}}</span>
+                </dd>
+                <dt><span jhiTranslate="testappApp.business.link">Link</span></dt>
+                <dd>
+                    <span>{{business.link}}</span>
+                </dd>
+                <dt><span jhiTranslate="testappApp.business.reservation">Reservation</span></dt>
+                <dd>
+                    <span>{{business.reservation}}</span>
+                </dd>
+                <dt><span jhiTranslate="testappApp.business.delivery">Delivery</span></dt>
+                <dd>
+                    <span>{{business.delivery}}</span>
+                </dd>
+                <dt><span jhiTranslate="testappApp.business.wifi">Wifi</span></dt>
+                <dd>
+                    <span>{{business.wifi}}</span>
+                </dd>
+                <dt><span jhiTranslate="testappApp.business.image">Image</span></dt>
+                <dd>
+                    <div *ngIf="business.image">
+                        <a (click)="openFile(business.imageContentType, business.image)">
+                            <img [src]="'data:' + business.imageContentType + ';base64,' + business.image" style="max-width: 100%;" alt="business image"/>
+                        </a>
+                        {{business.imageContentType}}, {{byteSize(business.image)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="testappApp.business.video">Video</span></dt>
+                <dd>
+                    <div *ngIf="business.video">
+                        <a (click)="openFile(business.videoContentType, business.video)" jhiTranslate="entity.action.open">open</a>
+                        {{business.videoContentType}}, {{byteSize(business.video)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="testappApp.business.paid">Paid</span></dt>
+                <dd>
+                    <span>{{business.paid}}</span>
+                </dd>
+                <dt><span jhiTranslate="testappApp.business.imagepath">Imagepath</span></dt>
+                <dd>
+                    <span>{{business.imagepath}}</span>
+                </dd>
+                <dt><span jhiTranslate="testappApp.business.videopath">Videopath</span></dt>
+                <dd>
+                    <span>{{business.videopath}}</span>
+                </dd>
+                <dt><span jhiTranslate="testappApp.business.userProfile">User Profile</span></dt>
+                <dd>
+                    <div *ngIf="business.userProfileId">
+                        <a [routerLink]="['/user-profile', business.userProfileId, 'view']">{{business.userProfileId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/business', business.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
