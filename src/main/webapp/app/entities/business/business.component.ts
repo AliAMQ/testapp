@@ -98,7 +98,8 @@ export class BusinessComponent implements OnInit, OnDestroy {
             this.currentAccount = account;
         });
         this.registerChangeInBusinesses();
-        console.log(this.principal.userIdentity.id);
+        // this.principal.identity().subscribe()
+        console.log('12345-' + this.principal.getUserId());
     }
 
     ngOnDestroy() {
